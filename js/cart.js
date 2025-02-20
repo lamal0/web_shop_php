@@ -1,5 +1,10 @@
-// Функция для установки куки
 function setCookie(name, value, days) {
+
+	if (!getCookie('cookiesAccepted')) {
+		console.warn('Пользователь не дал согласие на использование cookies.')
+		return
+	}
+
 	let expires = ''
 	if (days) {
 		let date = new Date()
@@ -11,12 +16,15 @@ function setCookie(name, value, days) {
 
 function getCookie(name) {
 	let match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'))
-	return match ? JSON.parse(match[2]) : []
+	return match ? JSON.parse(match[2]) : null
 }
-
 
 function updateCartCount() {
 	let cart = getCookie('cart')
+    if (!Array.isArray(cart)) {
+			console.warn('Ошибка: cart не является массивом', cart)
+			cart = []
+		}
 	let totalCount = cart.reduce((sum, item) => sum + item.quantity, 0)
 	$('#cart-count').text(totalCount)
 }
@@ -26,18 +34,22 @@ $(document).on('click', '.add-to-cart', function () {
 	let name = $(this).data('name')
 	let price = $(this).data('price')
 	let img = $(this).data('img')
-    console.log($(this).data('name'))
-    console.log(name)
 	let cart = getCookie('cart')
-
+    if (!cart) {
+        setCookie('cart', [], 7)
+        cart = getCookie('cart')
+        if (!cart) {
+            return
+        }
+    }
 	let product = cart.find(item => item.id == productId)
 	if (product) {
 		product.quantity++
 	} else {
 		cart.push({ id: productId, name, price, img, quantity: 1 })
 	}
-
-	setCookie('cart', cart, 7) // Сохраняем в куки на 7 дней
+    console.log(name)
+	setCookie('cart', cart, 7) 
 	updateCartCount()
 })
 
