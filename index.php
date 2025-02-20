@@ -36,6 +36,14 @@ require 'env.php';
         <option value="name_asc">Название ↑</option>
         <option value="name_desc">Название ↓</option>
     </select>
+
+    <select id="category">
+        <option value="">Все</option>
+        <option value="electronics">Электроника</option>
+        <option value="clothing">Одежда</option>
+        <option value="accessories">Акссесуары</option>
+        <option value="home">Дом</option>
+    </select>
     
     <div id="products"></div>
     <script src="js/ajax.js"></script>

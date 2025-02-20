@@ -23,14 +23,16 @@ if (!$product) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($product['name']); ?></title>
+    <link rel="stylesheet" href="css/style_product.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/cart.js"></script>
 </head>
 <body>
     <header>
-        <h1>Магазин</h1>
-        <div class="cart-icon" id="cart-count">0</div>
+        <a href="index.php"><h1>Магазин</h1></a>
+        <a href="cart.php">
+            <div class="cart-icon" id="cart-count">0</div>
+        </a>
     </header>
 
     <div class="product-page">
@@ -38,7 +40,13 @@ if (!$product) {
         <h2><?php echo htmlspecialchars($product['name']); ?></h2>
         <p><?php echo htmlspecialchars($product['description']); ?></p>
         <span class="price"><?php echo number_format($product['price'], 2); ?> грн</span>
-        <button class="add-to-cart" data-id="<?php echo $product['id']; ?>">В корзину</button>
+        <button class="add-to-cart" 
+            data-id="<?php echo $product['id']; ?>" 
+            data-name="<?php echo htmlspecialchars($product['name']); ?>" 
+            data-price="<?php echo $product['price']; ?>" 
+            data-img="<?php echo htmlspecialchars($product['img']); ?>">
+            В корзину
+        </button>
     </div>
 
     <script src="js/cart.js"></script>
