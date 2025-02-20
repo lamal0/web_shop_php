@@ -11,8 +11,16 @@ require 'env.php';
     <title>Магазин</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/cart.js"></script>
+
+    
+
 </head>
+
+<div id="cookie-popup" class="cookie-popup">
+    <p>Этот сайт использует cookies для работы с корзиной товарор. <a href="https://github.com/lamal0/web_shop_php">Подробнее</a></p>
+    <button id="accept-cookies">ОК</button>
+</div>
+
 <body>
     <header>
         <h1>Магазин</h1>
@@ -31,6 +39,12 @@ require 'env.php';
     
     <div id="products"></div>
     <script src="js/ajax.js"></script>
+    
+    <div class="delete_cookies">
+        <button id="delete-cookie">Удалить cookies</button>
+    </div>
+    <script src="js/cart.js"></script>
+    <script src="js/cookie.js"></script>
 
 </body>
 </html>
