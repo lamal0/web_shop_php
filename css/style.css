@@ -20,6 +20,49 @@ a {
     cursor: pointer;
 }
 
+/* Стили для уведомления о cookies */
+.cookie-popup {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 14px;
+    display: none; /* По умолчанию скрыто */
+    z-index: 999;
+}
+
+.cookie-popup p {
+    margin: 0;
+}
+
+.cookie-popup a {
+    color: #ffcc00;
+    text-decoration: underline;
+}
+
+#accept-cookies {
+    background: #ffcc00;
+    border: none;
+    padding: 8px 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#accept-cookies:hover {
+    background: #e6b800;
+}
+
+
 
 .cart-icon {
     position: fixed;
@@ -128,38 +171,73 @@ a {
     margin: 10px 0;
 }
 
-/* Кнопка "В корзину" */
 .product .add-to-cart {
-    background: #ff5722;
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
     color: white;
-    padding: 10px 15px;
     border: none;
-    border-radius: 5px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
     cursor: pointer;
-    font-size: 14px;
-    transition: background 0.3s;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(255, 65, 108, 0.4);
 }
 
 .product .add-to-cart:hover {
-    background: #e64a19;
+    background: linear-gradient(135deg, #ff4b2b, #ff416c);
+    box-shadow: 0 6px 15px rgba(255, 65, 108, 0.6);
+    transform: scale(1.05);
+}
+.product .add-to-cart:active {
+    transform: scale(2);
+    box-shadow: 0 2px 5px rgba(255, 65, 108, 0.3);
 }
 
-/* Ховер эффект */
 .product:hover {
-    transform: scale(1.05); /* Увеличение при наведении */
+    transform: scale(1.05); 
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* 🌐 Адаптивность */
+.delete_cookies {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+#delete-cookie {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(255, 65, 108, 0.4);
+}
+
+#delete-cookie:hover {
+    background: linear-gradient(135deg, #ff4b2b, #ff416c);
+    box-shadow: 0 6px 15px rgba(255, 65, 108, 0.6);
+    transform: scale(1.05);
+}
+
+#delete-cookie:active {
+    transform: scale(1.5);
+    box-shadow: 0 2px 5px rgba(255, 65, 108, 0.3);
+}
+
 @media (max-width: 1024px) {
     #products {
-        grid-template-columns: repeat(2, 1fr); /* 2 товара в ряд */
+        grid-template-columns: repeat(2, 1fr); 
     }
 }
 
 @media (max-width: 768px) {
     #products {
-        grid-template-columns: repeat(1, 1fr); /* 1 товар в ряд */
+        grid-template-columns: repeat(1, 1fr); 
     }
 }
 
