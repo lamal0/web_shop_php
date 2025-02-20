@@ -1,0 +1,10 @@
+{
+    "name": "lesha/php_lab1",
+    "description": "lab1",
+    "type": "project",
+    "require": {
+        "guzzlehttp/guzzle": "^7.9"
+    },
+    "license": "MIT",
+    "minimum-stability": "stable"
+}
