@@ -11,11 +11,14 @@ require 'env.php';
     <title>Магазин</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/cart.js"></script>
 </head>
 <body>
     <header>
         <h1>Магазин</h1>
-        <div class="cart-icon" id="cart-count">0</div>
+        <a href="cart.php">
+            <div class="cart-icon" id="cart-count">0</div>
+        </a>
     </header>
     
     <input type="text" id="search" placeholder="Поиск...">
