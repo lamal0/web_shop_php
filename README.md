@@ -12,11 +12,10 @@
 | Технологія       | Опис  |
 |------------------|------------------------------------------------------|
 | ![PHP](https://img.icons8.com/color/30/php.png) **PHP** | Серверна частина сайту та API для отримання товарів |
-| ![MySQL](https://img.icons8.com/color/30/mysql.png) **MySQL** | База даних для збереження товарів та замовлень |
+| ![MySQL](https://img.icons8.com/color/30/mysql.png) **MySQL** | База даних для збереження товарів|
 | ![JavaScript](https://img.icons8.com/color/30/javascript.png) **JavaScript (jQuery)** | Динамічне оновлення контенту та AJAX-запити |
 | ![HTML](https://img.icons8.com/color/30/html-5.png) **HTML** | Розмітка сторінки |
 | ![CSS](https://img.icons8.com/color/30/css3.png) **CSS** | Стилізація сайту |
-| ![Bootstrap](https://img.icons8.com/color/30/bootstrap.png) **Bootstrap** | Готові стилі для адаптивного дизайну |
 
 ---
 
