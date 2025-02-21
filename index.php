@@ -46,11 +46,16 @@ require 'env.php';
     </select>
     
     <div id="products"></div>
-    <script src="js/ajax.js"></script>
-    
+
+    <div id="loader" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+
     <div class="delete_cookies">
         <button id="delete-cookie">Удалить cookies</button>
     </div>
+
+    <script src="js/ajax.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/cookie.js"></script>
 

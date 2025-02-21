@@ -5,9 +5,12 @@ $search = isset($_GET['search']) ? trim($_GET['search']) : '';
 $sort = isset($_GET['sort']) ? $_GET['sort'] : 'date_desc';
 $category = isset($_GET['category']) ? $_GET['category'] : '';
 
+$limit = 6;
+$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+$offset = ($page - 1) * $limit;
+
 $query = "SELECT * FROM products WHERE 1";
 
-// Фильтр по категории
 if (!empty($category)) {
     $query .= " AND category = :category";
 }
@@ -26,6 +29,7 @@ $sort_options = [
 ];
 
 $query .= " ORDER BY " . ($sort_options[$sort] ?? 'created_at DESC');
+$query .= " LIMIT :limit OFFSET :offset";
 
 $stmt = $pdo->prepare($query);
 
@@ -36,13 +40,14 @@ if (!empty($search)) {
     $searchParam = "%$search%";
     $stmt->bindParam(':search', $searchParam, PDO::PARAM_STR);
 }
+$stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+$stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
 
 $stmt->execute();
 
 $output = '';
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $output .= '
-        
         <div class="product">
             <a href="product.php?id=' . $row['id'] . '">
                 <img src="' . htmlspecialchars($row['img']) . '" alt="' . htmlspecialchars($row['name']) . '">
@@ -57,11 +62,14 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 data-img="' . htmlspecialchars($row['img']) . '">
                 В корзину
             </button>
-
         </div>
-        
-        
     ';
 }
-echo $output;
+
+if ($output == '') {
+    echo '';
+} else {
+    echo $output;
+}
 ?>
+
